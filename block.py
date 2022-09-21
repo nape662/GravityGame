@@ -1,30 +1,39 @@
-from Vectors_xy import *
 
 BallStartX=0
 BallStartY=0 #modify
 class Block:
-    def __init__(self, Canvas, self.vel = (0, 0), self.pos = (BallStartX, BallStartY)):
-        #aslkdjsal
-        self.Canvas=Canvas
+    def __init__(self, Movefield):
+        print("create")
+        self.pos = (BallStartX, BallStartY)
+        self.Movefield = Movefield
         self.grav = 0
+        self.gravhelp = 0
+        self.ball = self.Movefield.drawline
     def move(self):
-        #thing
-        if self.grav%2 == 0:
-            #go up
+        if self.grav % 4 == 0:
+            pass
+        elif self.grav % 4 == 1:
+            pass
+        elif self.grav % 4 == 2:
+            pass
         else:
-            #go down
-        #4 grav values?
+            pass
 
     def gravsv(self):
-        self.grav += 1
-        # add 1 to score (opt)
+        if self.grav % 2 == 1:
+            self.gravhelp = 1
+        else:
+            self.grav +=1
+        print('SPAAAAACE')
     def check_collision_triangle(self):
-        #copy balls
+        print('wetrykilltriangle')
     def check_collision_wall(self):
-        #check y coord
+        print('destroywalls')
     def collide(self):
-        self.Canvas.drawpopup()
+        #self.movefield.drawpopup()
+        print('collision')
     def disappear(self):
+        print('I, the block, died')
 
 
 
