@@ -1,28 +1,31 @@
 from random import randint, choice
-Rightedge = 100
+from tkinter import *
+
+#triangle moves, appears randomly on top or bottom, and only 1 tringangle in one appearance
+
+Rightedge = 980
 TopLineY = 0  # upper line y coord
-BottomLineY = 500  # bottom line y coord
-movespeed = 4
+BottomLineY = 525  # bottom line y coord
+movespeed = 4 
 TriangleColor = 'blue'
 
-
 class Triangle:
-    def __init__(self, movefield, dist):
-        print("createtriangle")
+    def __init__(self, movefield):
         self.level = choice([BottomLineY, TopLineY])
         self.movefield = movefield
-        self.movefield.countdown=dist/movespeed
-        self.height = randint(10, 100)
-        self.width = self.height*0.4
-        
+        self.movefield.countdown=100
+        self.height = randint(100, 200)
+        self.width = self.height*1
+        self.position = 980
+
+        # this one can be replaced, here is how to draw the triangles
         if self.level == BottomLineY:
-            self.polygon = self.movefield.canvas.create_polygon(Rightedge, self.level, Rightedge - self.width, Rightedge - self.width/2, self.level - self.height, fill = 'White')
+            self.polygon = self.movefield.canvas.create_polygon(Rightedge, self.level, Rightedge + self.width, self.level, Rightedge + self.width/2, self.level - self.height, fill = 'Blue')
         else:
-            self.polygon = self.movefield.canvas.create_polygon(Rightedge, self.level, Rightedge - self.width, Rightedge - self.width / 2, self.level - self.height, fill = 'White')
+            self.polygon = self.movefield.canvas.create_polygon(Rightedge, self.level, Rightedge + self.width, self.level, Rightedge + self.width / 2, self.level + self.height, fill = 'Blue')
+       
+    
+    def move(self): #triangle moves
+        self.movefield.canvas.move(self.polygon,-movespeed, 0)
+        self.position -=movespeed
 
-    def move(self):
-        print("Imoved")
-        self.movefield.canvas.move(self.polygon, 0, -movespeed)
-
-    def destruct(self):
-        print("destruction")
