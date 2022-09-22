@@ -7,8 +7,6 @@ FormWidth = 300
 FormHeight = 80
 # PROPER DOCUMENTATION: https://tkdocs.com/shipman/
 
-def DoShit():
-    print('hiiiiiiii')
 
 class Form:
     def __init__(self, root, movefield, relx, rely, relwidth, relheight):
@@ -33,14 +31,16 @@ class Form:
         btn = Button(self.frame, font=font, text=lebel)
         btn.grid(row=self.row, column=self.oddity, columnspan=1, pady=10, padx=10)
         btn.bind('<Button-1>', onbtnclick)
+        self.row+=1
         return btn
 
 
-    #def addLabel(self, label, font=CtrlFont):
-    #    Label(self.frame, font=font, text=label).grid(row=self.row, column=0, padx=6, pady=6, sticky=E)
-        #lbl = Label(self.frame, font=font)
-        #lbl.grid(row=2, column=1, padx=6, pady=6, sticky=W)
-        #return lbl
+    def addLabel(self, label, font=CtrlFont):
+        Label(self.frame, font=font, text=label).grid(row=self.row, column=0, padx=6, pady=6, sticky=E)
+        lbl = Label(self.frame, font=font)
+        lbl.grid(row=self.row, column=1, padx=6, pady=6, sticky=W)
+        self.row+=1
+        return lbl
 
     #def SpacebarPress(self):
     #    self.root.bind("<KeyPress-a>", self.movefield.block.gravsv())
@@ -51,13 +51,10 @@ class Form:
         # self.movefield.reset()
         # start popup but with text reset
 
-    def cleardata(self, event):
-        print('cleardata')
-
-
     def init_widgets(self):
         print("init_widgets")
         self.resetbutton = self.addButton('reset', self.fieldreset)
-        #self.scorelabel = self.addLabel("Score: 12312321321321323131132131232323133")
+        self.gravityswitchbutton = self.addButton('gravity', self.movefield.block.gravsv)
+        self.scorelabel = self.addLabel("Score: 12312321321321323131132131232323133")
         # add invis button and call to ball switch
         # label changes score

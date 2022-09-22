@@ -1,20 +1,21 @@
 from triangle import *
 from block import *
-CanvasHeight = 525
+
+Canvasheight = 525
+Canvaswidth = 980
 
 BgColor = '#222'
-FG_COLOR = '#000000'
-CanvasWidth = 1000
-CanvasHeight = 800
+FG_COLOR = '#00000'
 from tkinter import *
 
 class Movefield:
     def __init__(self, root, FPS, relx, rely, relheight, relwidth):
         print("fieldinit")
+        self.Canvasheight = 525
+        self.Canvaswidth = 980
         self.root = root
         self.relx = relx
         self.rely = rely
-        self.block = Block(self)
         self.relheight = relheight
         self.relwidth = relwidth
         self.triangles = list()
@@ -23,9 +24,10 @@ class Movefield:
         self.FPS = FPS
         self.resethelp = 1  #helps to break update() loop
 
-        self.canvas = Canvas(self.root, bg=BgColor, width=CanvasWidth, height=CanvasHeight)
+        self.canvas = Canvas(self.root, bg=BgColor, width=Canvaswidth, height=Canvasheight)
         self.canvas.place(relx=self.relx, rely=self.rely,
                           relwidth=self.relwidth, relheight=self.relheight)
+        self.block = Block(self)
 
     def start(self): #helper for reset update()
         self.resethelp = 0
@@ -40,11 +42,10 @@ class Movefield:
 
     def update(self):
             # create trangles
-        self.countdown-=1
             # move triangles
             # delete triangles
             # collision check
-        print(self.resethelp, "in update")
+        self.countdown -= 1
         self.block.move()
         if self.resethelp == 0:
             self.canvas.after(1000 // self.FPS, self.update)  # remember to clear in reset

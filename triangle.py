@@ -14,7 +14,6 @@ class Triangle:
         self.movefield.countdown=dist/movespeed
         self.height = randint(10, 100)
         self.width = self.height*0.4
-        self.
         
         if self.level == BottomLineY:
             self.polygon = self.movefield.canvas.create_polygon(Rightedge, self.level, Rightedge - self.width, Rightedge - self.width/2, self.level - self.height, fill = 'White')
