@@ -1,4 +1,4 @@
-
+from tkinter import *
 from form import *
 from Canvas import *
 
