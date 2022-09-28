@@ -42,17 +42,14 @@ class Form:
         self.row+=1
         return lbl
 
-    #def SpacebarPress(self):
-    #    self.root.bind("<KeyPress-a>", self.movefield.block.gravsv())
 
     def fieldreset(self, event):
-        print("murmur")
         self.movefield.reset()
         # self.movefield.reset()
         # start popup but with text reset
 
     def init_widgets(self):
-        print("init_widgets")
+        #self.root.bind("<Spacebar>", self.movefield.block.gravsv)
         self.resetbutton = self.addButton('reset', self.fieldreset)
         self.gravityswitchbutton = self.addButton('gravity', self.movefield.block.gravsv)
         self.scorelabel = self.addLabel("Score: 12312321321321323131132131232323133")
