@@ -1,3 +1,2 @@
-# C-Users-peter-Documents-0_PYfiles-Dinosaur
+All files to same directory
 Launch gravity.py
-All files to same directory first
