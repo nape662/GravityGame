@@ -24,6 +24,6 @@ class Triangle:
        
     
     def move(self): #triangle moves
-        self.movefield.canvas.move(self.polygon,-self.movefield.trianglespeed, 0)
-        self.position -= self.movefield.trianglespeed
+        self.movefield.canvas.move(self.polygon,-self.movefield.triangle_speed, 0)
+        self.position -= self.movefield.triangle_speed
 

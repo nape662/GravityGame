@@ -1,6 +1,6 @@
 from tkinter import *
 from form import *
-from Canvas import *
+from canvas import *
 FPS = 100
 
 
