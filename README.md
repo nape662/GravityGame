@@ -1,2 +1,1 @@
-All files to same directory
-Launch gravity.py
+All files to same directory. Launch gravity.py
